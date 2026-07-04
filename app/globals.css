@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --void-black: #050609;
+  --kernel-graphite: #10131a;
+  --panel-ash: #191e29;
+  --dispute-amber: #ffb020;
+  --judgement-cyan: #35d5ff;
+  --appeal-purple: #8b5cf6;
+  --settlement-green: #32e875;
+  --fault-red: #ff4d5e;
+  --paper-white: #f5f1e8;
+  --muted-steel: #8a93a5;
+
+  --background: var(--void-black);
+  --foreground: var(--paper-white);
+  --card: var(--kernel-graphite);
+  --card-foreground: var(--paper-white);
+  --panel: var(--panel-ash);
+  --border: color-mix(in srgb, var(--paper-white) 12%, transparent);
+  --border-strong: color-mix(in srgb, var(--paper-white) 22%, transparent);
+  --ring: var(--judgement-cyan);
+  --muted: var(--muted-steel);
+  --primary: var(--judgement-cyan);
+  --primary-foreground: var(--void-black);
+  --accent: var(--dispute-amber);
+  --destructive: var(--fault-red);
+  --success: var(--settlement-green);
+  --appeal: var(--appeal-purple);
+}
+
+@theme inline {
+  --color-void-black: var(--void-black);
+  --color-kernel-graphite: var(--kernel-graphite);
+  --color-panel-ash: var(--panel-ash);
+  --color-dispute-amber: var(--dispute-amber);
+  --color-judgement-cyan: var(--judgement-cyan);
+  --color-appeal-purple: var(--appeal-purple);
+  --color-settlement-green: var(--settlement-green);
+  --color-fault-red: var(--fault-red);
+  --color-paper-white: var(--paper-white);
+  --color-muted-steel: var(--muted-steel);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-panel: var(--panel);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-appeal: var(--appeal);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+  --font-heavy: var(--font-archivo-black);
+
+  --animate-scan: scan 3s linear infinite;
+  --animate-pulse-glow: pulse-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  background: var(--background);
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, var(--judgement-cyan) 10%, transparent), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in srgb, var(--appeal-purple) 8%, transparent), transparent),
+    var(--void-black);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.font-heavy {
+  font-family: var(--font-heavy), ui-sans-serif, sans-serif;
+}
+
+.grid-fade {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--paper-white) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--paper-white) 4%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+.panel-glass {
+  background: color-mix(in srgb, var(--kernel-graphite) 88%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+::selection {
+  background: var(--judgement-cyan);
+  color: var(--void-black);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--panel-ash);
+  border-radius: 999px;
+}
